@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 20, "left": 50, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": 252, "left": 50, "attrs": { "pins": "i2c" } },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -431.98,
+      "left": 93.97,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 245.01, "left": 488.76, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 20.01,
+      "left": 402.43,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -23.86,
+      "left": 379.05,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -145.64, "left": 82.1, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:GND.2", "lcd:GND", "black", [ "v24", "*", "h-20" ] ],
+    [ "uno:5V", "lcd:VCC", "red", [ "v28", "*", "h-16" ] ],
+    [ "uno:A4", "lcd:SDA", "green", [ "v32", "*", "h-12" ] ],
+    [ "uno:A5", "lcd:SCL", "blue", [ "v36", "*", "h-8" ] ],
+    [ "uno:5V", "servo1:V+", "red", [ "v14.88", "h247.3", "v-217.93" ] ],
+    [ "servo1:GND", "uno:GND.2", "black", [ "h-42.79", "v243.61" ] ],
+    [ "keypad1:R1", "uno:2", "green", [ "v41", "h6.8" ] ],
+    [ "keypad1:R2", "uno:3", "green", [ "v69.33", "h28.27" ] ],
+    [ "keypad1:R3", "uno:4", "green", [ "v78.77", "h-2.21" ] ],
+    [ "keypad1:R4", "uno:5", "green", [ "v0" ] ],
+    [ "keypad1:C1", "uno:6", "green", [ "v50.44", "h-14.92", "v53.5" ] ],
+    [ "keypad1:C2", "uno:7", "green", [ "v79.82", "h-43.3" ] ],
+    [ "keypad1:C3", "uno:8", "green", [ "v55.69", "h-69.83" ] ],
+    [ "keypad1:C4", "uno:9", "green", [ "v64.08", "h-81.68" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h47.79", "v149.47" ] ],
+    [ "ldr1:GND", "uno:GND.2", "black", [ "h67.09", "v182.1" ] ],
+    [ "servo1:PWM", "uno:11", "green", [ "h-54.4", "v-271.46", "h-165.74" ] ],
+    [ "led1:C", "uno:GND.3", "green", [ "v217", "h-168.58" ] ],
+    [ "ldr1:AO", "uno:A0", "green", [ "h-37.41", "v58.39" ] ],
+    [ "uno:13", "led1:A", "green", [ "v1.86", "h225.5" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "dht1:SDA", "uno:10", "green", [ "v26.47", "h97.4" ] ],
+    [ "dht1:GND", "uno:GND.3", "black", [ "v222.86", "h105.12", "v-1.04" ] ]
+  ],
+  "dependencies": {}
+}
